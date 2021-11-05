@@ -1,0 +1,74 @@
+    swagger: "2.0"
+    info:
+      version: 0.0.0.0
+      title: Test Documentation
+    paths:
+      '/createorder':
+        post:
+          tags:
+            - Create Order
+          summary: Create Buy Order
+          description: Create a buy order based on selected currency in ISO3 code and amount between 0 and 1,000,000,000
+          parameters:
+            - name: body
+              in: body
+              schema:
+                properties:
+                  currency:
+                    type: string
+                    format: string
+                    example: 'EUR'
+                  amount:
+                    type: number
+                    format: number
+                    example: 500
+          responses:
+            200:
+              description: Order Created
+              schema:
+                properties:
+                  id:
+                    type: number
+                    example: 1
+                  amount:
+                    type: number
+                    example: 500
+                  currency:
+                    type: string
+                    example: 'EUR'
+                  rate:
+                    type: number
+                    example: 53 661,31
+                  btcamount:
+                    type: number
+                    example: 0,0093
+            400:
+              description: Bad request
+      '/fetchorder':
+        get:
+          tags:
+            - Fetch Orders
+          summary: Returns buy orders.
+          description: Returns Buy Orders stored in the database in reverse chronological order.
+          produces:
+            - application/json
+          responses:
+            200:
+              description: OK
+              schema:
+                properties:
+                  id:
+                    type: number
+                    example: 1
+                  amount:
+                    type: number
+                    example: 500
+                  currency:
+                    type: string
+                    example: 'EUR'
+                  rate:
+                    type: number
+                    example: 53 661,31
+                  btcamount:
+                    type: number
+                    example: 0,0093
