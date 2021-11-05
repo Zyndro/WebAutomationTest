@@ -1,6 +1,7 @@
 # Calculator Tests
 
-Test automation for Firefox example.
+Test automation for Firefox example.<br />
+https://ahfarmer.github.io/calculator/
 
 ## Installation
 
